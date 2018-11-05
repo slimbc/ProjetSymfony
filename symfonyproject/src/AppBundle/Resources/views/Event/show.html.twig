@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% use "blocks.html.twig" with header as parent_header %}
+
+{% block title %}NATEG Events{% endblock %}
+
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Event:show page</h1>
+{% endblock %}

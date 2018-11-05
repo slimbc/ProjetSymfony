@@ -34,9 +34,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/calendar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/lightcase.css') }}">
 
-    <!-- color switcher css include -->
+    <!-- color switcher css include
     <link rel="stylesheet" type="text/css" href="{{ asset('css/colors/style-switcher.css') }}">
-    <link id="color_theme" rel="stylesheet" type="text/css" href="{{ asset('css/colors/default.css') }}">
+    <link id="color_theme" rel="stylesheet" type="text/css" href="{{ asset('css/colors/default.css') }}">-->
 
     <!-- custom css include -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -314,7 +314,7 @@
 
 
 
-
+{% block header %}
 <!-- altranative-header - start
 			================================================== -->
 <div class="header-altranative">
@@ -757,11 +757,15 @@
 </section>
 <!-- slide-section - end
 			================================================== -->
-
+{% endblock %}
+<section id="upcomming-event-section" class="upcomming-event-section sec-ptb-100 clearfix">
+    <div class="container">
 {% block body %}
 
-{% endblock %}
 
+{% endblock %}
+    </div>
+</section>
 
 <!-- footer-section2 - start
 			================================================== -->
@@ -928,8 +932,8 @@
 <script src="{{ asset('js/progress-counter.min.js') }}"></script>
 
 
-<!-- color panal - jqury include -->
-<script src="{{ asset('js/style-switcher.js') }}"></script>
+<!-- color panal - jqury include
+<script src="{{ asset('js/style-switcher.js') }}"></script>-->
 
 <!-- custom jquery include -->
 <script src="{{ asset('js/custom.js') }}"></script>

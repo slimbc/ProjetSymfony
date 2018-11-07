@@ -27,6 +27,7 @@ class EventController extends Controller
      */
     public function addAction()
     {
+//        TODO oussema : add event
         return $this->render('AppBundle:Event:add.html.twig', array(
             // ...
         ));
@@ -37,6 +38,7 @@ class EventController extends Controller
      */
     public function deleteAction()
     {
+//        TODO oussema : delete event
         return $this->render('AppBundle:Event:delete.html.twig', array(
             // ...
         ));
@@ -47,9 +49,19 @@ class EventController extends Controller
      */
     public function updateAction()
     {
+//        TODO oussema : update event
         return $this->render('AppBundle:Event:update.html.twig', array(
             // ...
         ));
     }
 
+    /**
+     * @Route("/search",name="search event")
+     */
+    public function searchAction(){
+//        TODO Oussema : search Event
+        return $this->render('AppBundle:Event:update.html.twig', array(
+            // ...
+        ));
+    }
 }

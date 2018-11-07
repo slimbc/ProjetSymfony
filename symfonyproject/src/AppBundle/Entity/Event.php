@@ -31,23 +31,37 @@ class Event
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateDeb", type="date")
+     * @ORM\Column(name="dateBegin", type="date")
      */
-    private $dateDeb;
+    private $dateBegin;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateFin", type="date")
+     * @ORM\Column(name="date_end", type="date")
      */
-    private $dateFin;
+    private $dateEnd;
 
+    /**
+     * @ORM\Column(name="time_begin",type="datetime")
+     */
+    private $timeBegin;
+
+    /**
+     * @ORM\Column(name="time_end", type="datetime")
+     */
+    private $timeEnd;
     /**
      * @var string
      *
      * @ORM\Column(name="lieu", type="string", length=50)
      */
     private $lieu;
+
+    /**
+     * @ORM\Column(name="img_path",type="string")
+     */
+    private $imgPath;
 
     /**
      * @var string
@@ -94,13 +108,13 @@ class Event
     /**
      * Set dateDeb
      *
-     * @param \DateTime $dateDeb
+     * @param \DateTime $dateBegin
      *
      * @return Event
      */
-    public function setDateDeb($dateDeb)
+    public function setDateBegin($dateBegin)
     {
-        $this->dateDeb = $dateDeb;
+        $this->dateBegin = $dateBegin;
 
         return $this;
     }
@@ -110,21 +124,21 @@ class Event
      *
      * @return \DateTime
      */
-    public function getDateDeb()
+    public function getDateBegin()
     {
-        return $this->dateDeb;
+        return $this->dateBegin;
     }
 
     /**
      * Set dateFin
      *
-     * @param \DateTime $dateFin
+     * @param \DateTime $dateEnd
      *
      * @return Event
      */
-    public function setDateFin($dateFin)
+    public function setDateEnd($dateEnd)
     {
-        $this->dateFin = $dateFin;
+        $this->dateEnd = $dateEnd;
 
         return $this;
     }
@@ -134,9 +148,9 @@ class Event
      *
      * @return \DateTime
      */
-    public function getDateFin()
+    public function getDateEnd()
     {
-        return $this->dateFin;
+        return $this->dateEnd;
     }
 
     /**
@@ -186,5 +200,52 @@ class Event
     {
         return $this->description;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getTimeBegin()
+    {
+        return $this->timeBegin;
+    }
+
+    /**
+     * @param mixed $timeBegin
+     */
+    public function setTimeBegin($timeBegin)
+    {
+        $this->timeBegin = $timeBegin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimeEnd()
+    {
+        return $this->timeEnd;
+    }
+
+    /**
+     * @param mixed $timeEnd
+     */
+    public function setTimeEnd($timeEnd)
+    {
+        $this->timeEnd = $timeEnd;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImgPath()
+    {
+        return $this->imgPath;
+    }
+
+    /**
+     * @param mixed $imgPath
+     */
+    public function setImgPath($imgPath)
+    {
+        $this->imgPath = $imgPath;
+    }
+}

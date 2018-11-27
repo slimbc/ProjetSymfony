@@ -377,8 +377,9 @@ textarea {
 /* padding - margin setting - start 
 ================================================== */
 .sec-ptb-100 {
-  padding: 100px 0px; }
-
+  padding: 100px 0; }
+.sec-ptb-200 {
+  padding: 200px 0; }
 .mb-15 {
   margin-bottom: 15px; }
 
@@ -408,7 +409,7 @@ textarea {
   display: inline-flex;
   font-size: 14px;
   text-transform: uppercase;
-  background: #ffbe30;
+  background: #352e4e;
   color: #ffffff !important;
   -webkit-box-shadow: 0 5px 60px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 60px 5px rgba(0, 0, 0, 0.2); }
@@ -425,16 +426,16 @@ textarea {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out; }
   .custom-btn:before {
-    background: -webkit-gradient(linear, left top, right bottom, from(#ff3e00), to(#ffbe30));
-    background: -webkit-linear-gradient(top left, #ff3e00, #ffbe30);
-    background: -o-linear-gradient(top left, #ff3e00, #ffbe30);
-    background: linear-gradient(to bottom right, #ff3e00, #ffbe30); }
+    background: -webkit-gradient(linear, left top, right bottom, from(#352e4e), to(#bf322b));
+    background: -webkit-linear-gradient(top left, #352e4e, #bf322b);
+    background: -o-linear-gradient(top left, #352e4e, #bf322b);
+    background: linear-gradient(to bottom right, #352e4e, #bf322b); }
   .custom-btn:after {
     opacity: 0;
-    background: -webkit-gradient(linear, left top, right bottom, from(#ffbe30), to(#ff3e00));
-    background: -webkit-linear-gradient(top left, #ffbe30, #ff3e00);
-    background: -o-linear-gradient(top left, #ffbe30, #ff3e00);
-    background: linear-gradient(to bottom right, #ffbe30, #ff3e00); }
+    background: -webkit-gradient(linear, left top, right bottom, from(#bf322b), to(#352e4e));
+    background: -webkit-linear-gradient(top left, #bf322b, #352e4e);
+    background: -o-linear-gradient(top left, #bf322b, #352e4e);
+    background: linear-gradient(to bottom right, #bf322b, #352e4e); }
   .custom-btn:hover:before {
     opacity: 0; }
   .custom-btn:hover:after {
@@ -830,9 +831,9 @@ button {
             text-transform: capitalize;
             color: rgba(255, 255, 255, 0.5); }
           .default-header-section .header-bottom .menu-item-list > ul > .menu-item-has-children .sub-menu > li .active {
-            color: #ffbe30; }
+            color: #9682de; }
           .default-header-section .header-bottom .menu-item-list > ul > .menu-item-has-children .sub-menu > li:hover > a {
-            color: #ffbe30; }
+            color: #bf322b; }
       .default-header-section .header-bottom .menu-item-list > ul > .menu-item-has-children:hover .sub-menu {
         opacity: 1;
         visibility: visible; }
@@ -5736,7 +5737,7 @@ button {
 /* event page - start
 ==================================================================================================== */
 .event-search-section {
-  padding: 80px 0px;
+  padding: 170px 0 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
@@ -5882,7 +5883,7 @@ button {
       .event-section .event-list-item .event-image .post-date .month {
         font-size: 16px;
         text-transform: uppercase; }
-  .event-section .event-list-item .event-content {
+  .event-section .event-list-item . event-content {
     display: table;
     padding: 10px 0px; }
     .event-section .event-list-item .event-content .event-title {
@@ -5916,7 +5917,7 @@ button {
         margin-right: 10px;
         color: #ffffff;
         border-radius: 100%;
-        background-color: #ffbe30; }
+        background-color: #352e4e; }
       .event-section .event-list-item .event-content .event-info-list ul li .info-content {
         display: table; }
         .event-section .event-list-item .event-content .event-info-list ul li .info-content small {
@@ -6084,7 +6085,7 @@ button {
     color: #ffbe30; }
 
 .event-details-section .event-details .event-title .event-title {
-  margin: 0px;
+  margin-top: 60px;
   font-size: 36px; }
   .event-details-section .event-details .event-title .event-title strong {
     font-weight: 900; }
@@ -6161,7 +6162,7 @@ button {
       border-radius: 100%;
       color: #ffffff;
       font-size: 18px;
-      background-color: #ffbe30; }
+      background-color: #bf322b; }
     .event-details-section .event-details .event-info-list ul li .event-content {
       display: table;
       padding-left: 15px; }
@@ -6209,7 +6210,7 @@ button {
         text-transform: capitalize; }
     .event-details-section .event-schedule .schedule-date-menu > li > .active {
       color: #ffffff;
-      background-color: #ffbe30; }
+      background-color: #352e4e; }
 
 .event-details-section .event-schedule .tab-content .hotal-menu {
   z-index: 1;
@@ -6240,7 +6241,7 @@ button {
       background-color: #f7f7f7; }
     .event-details-section .event-schedule .tab-content .hotal-menu > li > .active {
       color: #ffffff;
-      background-color: #ffbe30; }
+      background-color: #352e4e; }
 
 .event-details-section .event-schedule .tab-content .tab-content .tab-pane .hall-item {
   padding: 30px;
@@ -6268,7 +6269,7 @@ button {
         border-radius: 100%;
         color: #ffffff;
         font-size: 18px;
-        background-color: #ffbe30; }
+        background-color: #352e4e; }
       .event-details-section .event-schedule .tab-content .tab-content .tab-pane .hall-item .hall-content .event-info-list ul li .event-content {
         display: table;
         padding-left: 5px; }
@@ -7717,7 +7718,7 @@ button {
 ==================================================================================================== */
 @media screen and (max-width: 480px) {
   .sec-ptb-100 {
-    padding: 50px 0px; }
+    padding: 120px 0px; }
   .slide-section .main-carousel1 .item .slider-item-content {
     padding: 100px 0px;
     padding-bottom: 250px; }

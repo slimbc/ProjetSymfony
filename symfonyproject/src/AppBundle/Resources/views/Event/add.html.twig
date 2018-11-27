@@ -1,7 +1,47 @@
-{% extends "::base.html.twig" %}
+{% extends "base.html.twig" %}
+{% use "blocks.html.twig" with header as parent_header %}
 
-{% block title %}AppBundle:Event:Add{% endblock %}
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
+
+{% block title %}Add Event{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Event:Add page</h1>
+    <section id="upcomming-event-section" class="event-section bg-white sec-ptb-200 clearfix">
+    <div class="container">
+        <div class="form-wrapper">
+    {{ form_start(form) }}
+            <div class="form-item mb-15">
+        {{ form_row(form.name) }}
+            </div>
+            <div class="form-item mb-15">
+            {{ form_row(form.description) }}
+            </div>
+            <div class="form-item mb-15">
+                {{ form_row(form.dateBegin,{'attr':{'class':'addeventatc frs' }}) }}
+            </div>
+            <div class="form-item mb-15">
+                {{ form_row(form.dateEnd) }}
+            </div>
+
+            <div class="form-item mb-15">
+                {{ form_row(form.location) }}
+            </div>
+
+            <div class="form-item mb-15">
+                {{ form_row(form.price) }}
+            </div>
+
+            <div class="form-item mb-15">
+                {{ form_row(form.image) }}
+            </div>
+            <div class="reg-form submit-btn">
+                {{ form_row(form.submit) }}
+            </div>
+
+    {{ form_end(form) }}
+        </div>
+    </div>
+    </section>
 {% endblock %}

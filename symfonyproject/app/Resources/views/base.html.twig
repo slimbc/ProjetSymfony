@@ -58,7 +58,7 @@
 <div id="preloader"></div>
 <!-- preloader - end -->
 
-
+{% block header %}
 <!-- header-section - start
 			================================================== -->
 <header id="header-section" class="header-section sticky-header-section not-stuck clearfix">
@@ -71,7 +71,7 @@
                 <div class="col-lg-3">
                     <div class="site-logo-wrapper">
                         <a href="index-1.html" class="logo">
-                            <img src="{{ asset('images/1.site-logo.png') }}" alt="logo_not_found">
+                            <img src="{{ asset('images/logo site.png') }}" alt="logo_not_found">
                         </a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#!">events</a>
+                                            <a href="{{ path('show_events') }}">events</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item-has-children">
                                                     <a href='event-1.html'>event List</a>
@@ -182,11 +182,7 @@
                                             <a href="speaker.html">speaker</a>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#!">contact</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="contact.html">contact us</a></li>
-                                                <li><a href='404-error.html'>404 Error</a></li>
-                                            </ul>
+                                            <a href="{{ path('contact_page') }}">contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -313,7 +309,7 @@
 
 
 
-{% block header %}
+
 <!-- altranative-header - start
 			================================================== -->
 <div class="header-altranative">
@@ -757,14 +753,12 @@
 <!-- slide-section - end
 			================================================== -->
 {% endblock %}
-<section id="upcomming-event-section" class="upcomming-event-section sec-ptb-100 clearfix">
-    <div class="container">
+
 {% block body %}
 
 
 {% endblock %}
-    </div>
-</section>
+
 
 <!-- footer-section2 - start
 			================================================== -->

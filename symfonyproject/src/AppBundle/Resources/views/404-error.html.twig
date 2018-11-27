@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% use "blocks.html.twig" with header as parent_header %}
+
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block body %}
+<!-- backtotop - start -->
+<!-- <div id="thetop" class="thetop"></div>
+<div class='backtotop'>
+    <a href="#thetop" class='scroll'>
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+</div> -->
+<!-- backtotop - end -->
+
+<!-- preloader - start -->
+<div id="preloader"></div>
+
+
+
+
+
+<!-- error-section - start
+================================================== -->
+<section id="error-section" class="error-section sec-ptb-100 bg-gray-light clearfix">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <!-- error-content - start -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="icon">
+                    <i class="far fa-frown"></i>
+                </div>
+            </div>
+            <!-- error-content - end -->
+
+            <!-- error-content - start -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="error-content">
+                    <h2>404</h2>
+                    <h3>error - page not found</h3>
+                    <p class="mb-30">something was wrong. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <a href="{{ path('homepage') }}" class="custom-btn">go back to home</a>
+                </div>
+            </div>
+            <!-- error-content - end -->
+
+        </div>
+    </div>
+</section>
+<!-- error-section - end
+================================================== -->
+{% endblock %}

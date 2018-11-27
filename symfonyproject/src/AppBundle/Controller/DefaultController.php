@@ -18,4 +18,13 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @param $message
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/404_NotFount", name="404NotFound")
+     */
+    public function erorAction($message){
+        return $this->render('@App/404-error.html.twig',array('message'=>$message));
+    }
 }

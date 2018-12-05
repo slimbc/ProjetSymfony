@@ -1,7 +1,28 @@
 {% extends "base.html.twig" %}
-
+{% use "blocks.html.twig" with header as parent_header %}
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
 {% block title %}add Article{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Article:add page</h1>
+    <section id="upcomming-event-section" class="event-section bg-white sec-ptb-200 clearfix">
+        <div class="container">
+            <div class="form-wrapper">
+                {{ form_start(form) }}
+                <div class="form-item mb-15">
+                    {{ form_row(form.name) }}
+                </div>
+                <div class="form-item mb-15">
+                    {{ form_row(form.content) }}
+                </div>
+
+                <div class="reg-form submit-btn">
+                    {{ form_row(form.submit) }}
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
 {% endblock %}

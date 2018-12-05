@@ -35,6 +35,30 @@ class Article
      */
     private $content;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="creater", type="string")
+     */
+    private $creater;
+
+    /**
+     * @return string
+     */
+    public function getCreater()
+    {
+        return $this->creater;
+    }
+
+    /**
+     * @param string $creater
+     */
+    public function setCreater($creater)
+    {
+        $this->creater = $creater;
+    }
+
+
 
     /**
      * Get id

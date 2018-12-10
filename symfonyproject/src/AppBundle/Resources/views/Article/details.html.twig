@@ -193,6 +193,7 @@
                                     </td>
                                     <td>    <h5>{{ c.datte }}</h5>
                                     </td>
+                                    <td><a href="{{  absolute_url('../..')~path('delete_comment', {'id' : c.id}) }}">delete</a></td>
                                     </tr>{% endfor %}</table>
                           <div class="row">
                               {{ form_start(form) }}

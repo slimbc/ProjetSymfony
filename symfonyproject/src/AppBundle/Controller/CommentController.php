@@ -7,7 +7,11 @@ use AppBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-
+/**
+ * Class CommentController
+ * @package AppBundle\Controller
+ * @Route("/comment")
+ */
 class CommentController extends Controller
 {
     /**
@@ -36,13 +40,17 @@ class CommentController extends Controller
     }
 
     /**
-     * @Route("/delete")
+     * @Route("/delete/{id}",name="delete_comment")
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
-        return $this->render('AppBundle:Comment:delete.html.twig', array(
-            // ...
-        ));
+       $comment= $this->getDoctrine()->getRepository(Comment::class)->findOneBy(array('id'=>$id))->setState(false);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($comment);
+        //redirect to all articls page
+
+        $em->flush();
+        return $this->redirect($this->generateUrl('show_article'));
     }
 
     /**

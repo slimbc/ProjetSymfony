@@ -79,7 +79,7 @@ class ArticleController extends Controller
      */
     public function showdetailsAction($id,Request $request)
     {  $article=$this->getDoctrine()->getRepository(Article::class)->findOneBy(array('id'=>$id));
-        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(array('article_id'=>$id));
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(array('article_id'=>$id,'state'=>true));
         $comment=new Comment();
         try{
             $form= $this->createForm(CommentType::class,$comment,array(
@@ -99,6 +99,7 @@ $comments[$c]->setDatte($comments[$c]->getDateEcriture().date_format());
                 $comment->setArticleId($id);
                 $time= (new \DateTime('now'));
                 $comment->setDateEcriture(new \DateTime('now'));
+                $comment->setState(true);
                 //$comment->setDatte(strlen($time));
                 $em->persist($comment);
                 $em->flush();

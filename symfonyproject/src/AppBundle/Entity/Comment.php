@@ -38,16 +38,65 @@ class Comment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEcriture", type="date")
+     * @ORM\Column(name="dateEcriture", type="date",nullable=True)
      */
     private $dateEcriture;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="state", type="boolean")
+     * @ORM\Column(name="state", type="boolean",nullable=True)
      */
     private $state;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date", type="string",nullable=True)
+     */
+    private $datte;
+
+    /**
+     * @return string
+     */
+    public function getDatte()
+    {
+        return $this->datte;
+    }
+
+    /**
+     * @param string $datte
+     */
+    public function setDatte($datte)
+    {
+        $this->datte = $datte;
+    }
+
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="article_id", type="string", length=60)
+     */
+    private $article_id;
+
+    /**
+     * @return string
+     */
+    public function getArticleId()
+    {
+        return $this->article_id;
+    }
+
+    /**
+     * @param string $article_id
+     */
+    public function setArticleId($article_id)
+    {
+        $this->article_id = $article_id;
+    }
 
 
     /**
@@ -55,6 +104,7 @@ class Comment
      *
      * @return int
      */
+
     public function getId()
     {
         return $this->id;

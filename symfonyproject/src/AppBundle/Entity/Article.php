@@ -36,11 +36,57 @@ class Article
     private $content;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateEcriture", type="date",nullable=True)
+     */
+    private $dateEcriture;
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateEcriture()
+    {
+        return $this->dateEcriture;
+    }
+
+    /**
+     * @param \DateTime $dateEcriture
+     */
+    public function setDateEcriture($dateEcriture)
+    {
+        $this->dateEcriture = $dateEcriture;
+    }
+
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="creater", type="string")
+     *  @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $creater;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="boolean",nullable=True)
+     */
+    private $state;
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
 
     /**
      * @return string

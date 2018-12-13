@@ -31,7 +31,7 @@ class Comment
     /**
      * @var string
      *
-     * @ORM\Column(name="writer", type="string", length=60)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $writer;
 

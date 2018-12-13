@@ -45,7 +45,7 @@
 										</span>
                                     <div class="event-content">
                                         <small class="event-title">published on</small>
-                                        <h3 class="event-date">may 13 th</h3>
+                                        <h3 class="event-date">{{ article.dateEcriture|date("d F Y")  }}</h3>
                                     </div>
                                 </li>
 
@@ -54,7 +54,7 @@
 											<i class="fas fa-map-marker-alt"></i>
 										</span>
                                     <div class="event-content">
-                                        <small class="event-title">Article type</small>
+                                        <small class="event-title">Article name</small>
                                         <h3 class="event-date">{{ article.name }}</h3>
                                     </div>
                                 </li>
@@ -64,7 +64,7 @@
                         <p class="black-color mb-30">
                             {{ article.content }}
                         </p>
-
+                        <a href="{{  absolute_url('../..')~path('delete_article', {'id':id}) }}">delete</a>
 
                     </div>
                     <!-- event-details - end -->
@@ -180,31 +180,31 @@
                             </div>
 
                         </div>
+                        {% for c in comments %}
+                        <div class="card">
+                            <h5 class="card-header">{{ c.writer.username }} :</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ c.content }}</h5>
+                                <p class="card-text">{{ c.dateEcriture|date("d F Y") }}</p>
+                                <a href="{{  absolute_url('../..')~path('delete_comment', {'id' : c.id,'article':id}) }}" class="btn btn-primary">delete</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
 
                         <div class="form-wrapper">
-                            <table>
-                                {% for c in comments %}
-                                    <tr>
-                                    <td>
-                                        <h1>{{ c.writer }} : </h1>
-                                    </td>
-                                    <td>
-                                        <h3>{{ c.content }}</h3>
-                                    </td>
-                                    <td>    <h5>{{ c.datte }}</h5>
-                                    </td>
-                                    <td><a href="{{  absolute_url('../..')~path('delete_comment', {'id' : c.id}) }}">delete</a></td>
-                                    </tr>{% endfor %}</table>
-                          <div class="row">
+                          <div class="card">
                               {{ form_start(form) }}
 
                               <!-- form-item - start -->
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="mb-30">
+                                    <div  class="card-body">
+                                        <h5 class="card-title">
+
                                             {{ form_row(form.content) }}
 
-                                        </div>
-                                        {{ form_row(form.submit) }}
+                                            <a class="btn btn-primary">
+                                                {{ form_row(form.submit) }}</a>
 
                                     </div>
                                     <!-- form-item - end -->

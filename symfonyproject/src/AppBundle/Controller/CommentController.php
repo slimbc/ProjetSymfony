@@ -40,9 +40,9 @@ class CommentController extends Controller
     }
 
     /**
-     * @Route("/delete/{id}",name="delete_comment")
+     * @Route("/delete/{id}/{article}",name="delete_comment")
      */
-    public function deleteAction($id)
+    public function deleteAction($id,$article)
     {
        $comment= $this->getDoctrine()->getRepository(Comment::class)->findOneBy(array('id'=>$id))->setState(false);
         $em = $this->getDoctrine()->getManager();
@@ -50,7 +50,8 @@ class CommentController extends Controller
         //redirect to all articls page
 
         $em->flush();
-        return $this->redirect($this->generateUrl('show_article'));
+
+        return $this->redirect($this->generateUrl('show_article_details',array("id" => $article)));
     }
 
     /**

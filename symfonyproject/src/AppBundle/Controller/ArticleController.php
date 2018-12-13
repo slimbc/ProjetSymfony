@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\User;
 use AppBundle\Form\ArticleType;
 use AppBundle\Form\CommentType;
 use Doctrine\DBAL\ConnectionException;
@@ -34,7 +35,10 @@ class ArticleController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 //persist the $event
             $em = $this->getDoctrine()->getManager();
-            $article->setCreater("hassen");
+            $user = $this->getUser();
+            $article->setDateEcriture(new \DateTime('now'));
+            $article->setCreater($user);
+            $article->setState(true);
             $em->persist($article);
             //redirect to all articls page
 
@@ -47,13 +51,18 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/delete")
+     * @Route("/delete/{id}",name="delete_article")
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
-        return $this->render('AppBundle:Article:delete.html.twig', array(
-            // ...
-        ));
+        $article= $this->getDoctrine()->getRepository(Comment::class)->findOneBy(array('id'=>$id))->setState(false);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($article);
+        //redirect to all articls page
+
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('show_article'));
     }
 
     /**
@@ -62,8 +71,8 @@ class ArticleController extends Controller
     public function showAction(LoggerInterface $logger)
     { $articls= array();
         try{
-            $articls=$this->getDoctrine()->getManager()->getRepository(Article::class)
-                ->findAll();
+            $articls=$this->getDoctrine()->getRepository(Article::class)
+                ->findBy(array('state'=>true));
 
         }catch (ConnectionException $exception){
             $logger->error($exception->getMessage());
@@ -95,18 +104,22 @@ $comments[$c]->setDatte($comments[$c]->getDateEcriture().date_format());
 }
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $comment->setWriter("hassen");
+                $user =new User();
+                $user=$this->getUser();
+                $comment->setWriter($user);
                 $comment->setArticleId($id);
                 $time= (new \DateTime('now'));
                 $comment->setDateEcriture(new \DateTime('now'));
+
                 $comment->setState(true);
                 //$comment->setDatte(strlen($time));
                 $em->persist($comment);
                 $em->flush();
 
             }
+            $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(array('article_id'=>$id,'state'=>true));
             return $this->render('@App/Article/details.html.twig', array(
-                'article'=>$article,'form' => $form->createView(),'comments'=>$comments
+                'article'=>$article,'id'=>$id,'form' => $form->createView(),'comments'=>$comments
             ));
         }
         catch (ConnectionException $exception){

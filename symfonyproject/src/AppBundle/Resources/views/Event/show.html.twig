@@ -157,6 +157,22 @@
                                                     tickets & details
                                                 </a>
                                             </li>
+                                            {% if is_granted('ROLE_ADMIN') %}
+                                                <li>
+                                                <a href="{{ path('update_event', {'id':event.id}) }}"><span class="icon">
+														<i class="fas fa-pencil-alt"></i>
+													</span>
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                            {% if is_granted('ROLE_ADMIN') %}                                            <li>
+                                            <li>
+                                                <a href="{{ path('delete_event', {'id':event.id}) }}"><span class="icon">
+														<i class="fas fa-trash-alt"></i>
+													</span>
+                                                </a>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </div>
@@ -227,6 +243,17 @@
                                             <a href="{{ path('show_details_events',{'id' : event.id}) }}" class="tickets-details-btn">
                                                 tickets & details
                                             </a>
+                                            {% if is_granted('ROLE_ADMIN') %}                                            <li>
+                                            <a href="{{ path('delete_event', {'id':event.id}) }}"><span class="icon">
+														<i class="fas fa-trash-alt"></i>
+													</span>
+                                                </a>
+                                            <a href="{{ path('update_event', {'id':event.id}) }}"><span class="icon">
+														<i class="fas fa-pencil-alt"></i>
+													</span>
+                                            </a>
+                                                {% endif %}
+
                                         </div>
                                         <!-- event-content - end -->
                                     </div>

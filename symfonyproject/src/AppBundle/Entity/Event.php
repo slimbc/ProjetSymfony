@@ -81,6 +81,7 @@ class Event
     private $status=true;
 
 
+
 //    *********** Getters and setters
 
 
@@ -265,4 +266,38 @@ class Event
     }
 
 
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set participants
+     *
+     * @param string $participants
+     *
+     * @return Event
+     */
+    public function setParticipants($participants)
+    {
+        $this->participants = $participants;
+
+        return $this;
+    }
+
+    /**
+     * Get participants
+     *
+     * @return string
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
 }

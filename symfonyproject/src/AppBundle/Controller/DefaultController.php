@@ -22,9 +22,18 @@ class DefaultController extends Controller
     /**
      * @param $message
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/404_NotFount", name="404NotFound")
+     * @Route("/404_NotFount/[error}", name="404NotFound")
      */
-    public function erorAction($message){
+    public function errorAction($message){
+
         return $this->render('@App/404-error.html.twig',array('message'=>$message));
+    }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function testAction(){
+        return $this->render('@App/test.html.twig');
+
     }
 }

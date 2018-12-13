@@ -68,7 +68,7 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
         $this->isActive = true;
-        $this->roles = array('ROLE_MEMBER');
+        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -220,20 +220,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return User
-     */
-    public function setRoles($roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
      * Returns the roles granted to the user.
      *
      * <code>
@@ -277,3 +263,4 @@ class User implements UserInterface, \Serializable
         // TODO: Implement eraseCredentials() method.
     }
 }
+

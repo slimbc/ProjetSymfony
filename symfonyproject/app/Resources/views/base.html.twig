@@ -10,34 +10,36 @@
     <title>{% block title %}NATEG{% endblock %}</title>
 
     {% block stylesheets %}
-    <link rel="shortcut icon" href="{{ asset('images/nateg_alpha.png') }}">
+        <link rel="shortcut icon" href="{{ asset('images/nateg_alpha.png') }}">
 
-    <!-- fraimwork - css include -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <!-- fraimwork - css include -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
 
-    <!-- icon css include -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome-all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
+        <!-- icon css include -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome-all.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
 
-    <!-- carousel css include -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.theme.default.min.css') }}">
+        <!-- carousel css include -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.theme.default.min.css') }}">
 
-    <!-- others css include -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/calendar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lightcase.css') }}">
+        <!-- others css include -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/calendar.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/lightcase.css') }}">
 
-    <!-- color switcher css include
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/colors/style-switcher.css') }}">
-    <link id="color_theme" rel="stylesheet" type="text/css" href="{{ asset('css/colors/default.css') }}">-->
+        <link href="{{ asset('node_modules/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
 
-    <!-- custom css include -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <!-- color switcher css include
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/colors/style-switcher.css') }}">
+        <link id="color_theme" rel="stylesheet" type="text/css" href="{{ asset('css/colors/default.css') }}">-->
+
+        <!-- custom css include -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 {% endblock %}
 </head>
 
@@ -168,7 +170,7 @@
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#!">magazine</a>
+                                            <a href="{{ path('show_article') }}">magazine</a>
                                             <ul class="sub-menu">
                                                 <li><a href='blog.html'>create article</a></li>
                                                 <li><a href='blog-details.html'>view article</a></li>
@@ -203,7 +205,7 @@
                                                     <div class="leftside-content">
                                                         <div class="site-logo-wrapper mb-80">
                                                             <a href="#!" class="logo">
-                                                                <img src="{{ asset('images/2.site-logo.png') }}" alt="logo_not_found">
+                                                                <img src="{{ asset('images/logo site.png') }}" alt="logo_not_found">
                                                             </a>
                                                         </div>
                                                         <div class="register-login-link mb-80">
@@ -212,9 +214,7 @@
                                                                 <li><a href="#!">Register</a></li>
                                                             </ul>
                                                         </div>
-                                                        <div class="copyright-text">
-                                                            <p class="m-0">©2018 <a href="#!" class="yellow-color">Harmoni.com</a> all right reserved, made with <i class="fas fa-heart"></i> by jThemes Studio </p>
-                                                        </div>
+
                                                     </div>
                                                     <!-- leftside-content - end -->
 
@@ -240,12 +240,12 @@
                                                         </div>
 
                                                         <div class="login-form text-center mb-50">
-                                                            <form action="#!">
+                                                            <form action="{{ path('login') }}" method="post">
                                                                 <div class="form-item">
-                                                                    <input type="email" placeholder="example@gmail.com">
+                                                                    <input type="text" placeholder="example@gmail.com" id="username" name="_username"">
                                                                 </div>
                                                                 <div class="form-item">
-                                                                    <input type="password" placeholder="Password">
+                                                                    <input type="password" placeholder="Password" id="password" name="_password">
                                                                 </div>
                                                                 <button type="submit" class="login-btn">login now</button>
                                                             </form>
@@ -774,7 +774,7 @@
 
                         <!-- site-logo-wrapper - start -->
                         <div class="site-logo-wrapper mb-30">
-                            <a href="index-1.html" class="logo">
+                            <a href="{{ path('homepage') }}" class="logo">
                                 <img src="{{ asset('images/1.site-logo.png') }}" alt="logo_not_found">
                             </a>
                         </div>
@@ -929,6 +929,9 @@
 
 <!-- custom jquery include -->
 <script src="{{ asset('js/custom.js') }}"></script>
+
+    <script src="{{ asset('node_modules/select2/dist/js/select2.min.js') }}"></script>
+
 {% endblock %}
 
 </body>

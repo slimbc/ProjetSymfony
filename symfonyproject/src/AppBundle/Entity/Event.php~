@@ -73,7 +73,18 @@ class Event
      */
     private $price;
 
-    private $status;
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="status", type="boolean")
+     */
+    private $status=true;
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $participants;
 
 
 //    *********** Getters and setters
@@ -242,5 +253,22 @@ class Event
     {
         $this->price = $price;
     }
+
+    /**
+     * @return bool
+     */
+    public function isStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
 
 }

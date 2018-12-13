@@ -1,7 +1,9 @@
 {% block header %}
 <header id="header-section" class="header-section default-header-section auto-hide-header clearfix">
 
-    {% block top_header %}<!-- header-top - start -->
+    {% block top_header %}
+        <!-- header-top - start -->
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
     <div class="header-top">
         <div class="container">
             <div class="row">
@@ -19,7 +21,7 @@
                             <li>
                                 <a href="#!">
                                     <i class="fas fa-phone"></i>
-                                    +216 25 807 553
+                                    +216 52 807 553
                                 </a>
                             </li>
                         </ul>
@@ -36,27 +38,8 @@
                                     <i class="fas fa-user"></i>
                                     Register
                                 </a>
-                                <div id="register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: url({{ asset('images/login-modal-bg.jpg') }});">
+                                <div id="register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" >
                                     <div class="overlay-black clearfix">
-
-                                        <!-- leftside-content - start -->
-                                        <div class="leftside-content">
-                                            <div class="site-logo-wrapper mb-80">
-                                                <a href="#!" class="logo">
-                                                    <img src="{{ asset('images/2.site-logo.png') }}" alt="logo_not_found">
-                                                </a>
-                                            </div>
-                                            <div class="register-login-link mb-80">
-                                                <ul>
-                                                    <li><a href="#!">Login</a></li>
-                                                    <li class="active"><a href="#!">Register</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="copyright-text">
-                                                <p class="m-0">©2018 <a href="#!" class="yellow-color">Harmoni.com</a> all right reserved, made with <i class="fas fa-heart"></i> by jThemes Studio </p>
-                                            </div>
-                                        </div>
-                                        <!-- leftside-content - end -->
 
                                         <!-- rightside-content - start -->
                                         <div class="rightside-content text-center">
@@ -116,25 +99,6 @@
                                 <div id="login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: url({{ asset('images/login-modal-bg.jpg') }});">
                                     <div class="overlay-black clearfix">
 
-                                        <!-- leftside-content - start -->
-                                        <div class="leftside-content">
-                                            <div class="site-logo-wrapper mb-80">
-                                                <a href="#!" class="logo">
-                                                    <img src="{{ asset('images/2.site-logo.png') }}" alt="logo_not_found">
-                                                </a>
-                                            </div>
-                                            <div class="register-login-link mb-80">
-                                                <ul>
-                                                    <li class="active"><a href="#!">Login</a></li>
-                                                    <li><a href="#!">Register</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="copyright-text">
-                                                <p class="m-0">©2018 <a href="#!" class="yellow-color">Harmoni.com</a> all right reserved, made with <i class="fas fa-heart"></i> by jThemes Studio </p>
-                                            </div>
-                                        </div>
-                                        <!-- leftside-content - end -->
-
                                         <!-- rightside-content - start -->
                                         <div class="rightside-content text-center">
 
@@ -143,21 +107,12 @@
                                                 <span class="form-subtitle white-color">Login to our website, or <strong>REGISTER</strong></span>
                                             </div>
 
-                                            <div class="fb-login-btn mb-30">
-                                                <a href="#!">
-															<span class="icon">
-																<i class="fab fa-facebook-f"></i>
-															</span>
-                                                    login with facebook
-                                                </a>
-                                            </div>
-
                                             <div class="or-text mb-30">
                                                 <span>or sign in</span>
                                             </div>
 
                                             <div class="login-form text-center mb-50">
-                                                <form action="#!">
+                                                <form action="{{ path('user_registration') }}">
                                                     <div class="form-item">
                                                         <input type="email" placeholder="example@gmail.com">
                                                     </div>
@@ -166,13 +121,6 @@
                                                     </div>
                                                     <button type="submit" class="login-btn">login now</button>
                                                 </form>
-                                            </div>
-
-                                            <div class="bottom-text white-color">
-                                                <p class="m-0">
-                                                    * Denotes mandatory field.
-                                                </p>
-                                                <p class="m-0">** At least one telephone number is required.</p>
                                             </div>
 
                                         </div>
@@ -193,6 +141,7 @@
             </div>
         </div>
     </div>
+        {% endif %}
     <!-- header-top - end -->
 {% endblock %}
     <!-- header-bottom - start -->
@@ -250,7 +199,7 @@
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="#!">magazine</a>
+                                            <a href="{{ path('show_article') }}">magazine</a>
                                             <ul class="sub-menu">
                                                 <li><a href='blog.html'>blog</a></li>
                                                 <li><a href='blog-details.html'>blog details</a></li>

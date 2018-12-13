@@ -181,7 +181,7 @@
                                     <div class="event-grid-item">
                                         <!-- event-image - start -->
                                         <div class="event-image">
-                                            <h1>created BY :{{ article.creater.username }}</h1>
+                                            <img src="{{ asset('images/artcile1.jpg') }}">
                                         </div>
                                         <!-- event-image - end -->
 
@@ -191,7 +191,7 @@
                                                 <h3 class="title">
                                                     {{ article.name }}
                                                 </h3>
-                                                <span class="ticket-price yellow-color">Tickets from 50Dt</span>
+                                                <span class="ticket-price yellow-color">{{ article.creater.username }}</span>
                                             </div>
                                             <div class="event-post-meta ul-li-block mb-30">
                                                 <ul>
@@ -199,7 +199,7 @@
 															<span class="icon">
 																<i class="far fa-clock"></i>
 															</span>
-                                                        Start
+                                                        {{ article.dateEcriture|date("d F Y") }}
                                                     </li>
                                                     <li>
 															<span class="icon">

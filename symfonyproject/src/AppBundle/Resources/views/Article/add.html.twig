@@ -18,11 +18,11 @@
                 </div>
 
                 <div class="reg-form submit-btn">
-                    {{ form_row(form.submit) }}
+                    {{ form_row(form.submit,{'attr':{'class':'btn btn-primary' }}) }}
                 </div>
 
-                {{ form_end(form,{'attr':{'class':'btn btn-primary' }}) }}
-            </div>
+                {{ form_end(form) }}
+ </div>
         </div>
     </section>
 {% endblock %}

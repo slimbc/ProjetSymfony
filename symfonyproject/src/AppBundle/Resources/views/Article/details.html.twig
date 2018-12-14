@@ -27,7 +27,7 @@
 
                         <div id="event-details-carousel" class="event-details-carousel owl-carousel owl-theme">
                             <div class="item">
-                                <img src="" alt="Image_not_found">
+                                <img src="{{ asset('images/artcile1.jpg') }}">
                             </div>
                             <div class="item">
                                 <img src="assets/images/event/event-details-2.jpg" alt="Image_not_found">
@@ -62,9 +62,9 @@
                         </div>
 
                         <p class="black-color mb-30">
-                            {{ article.content }}
+                          *  {{ article.content }}
                         </p>
-                        <a href="{{  absolute_url('../..')~path('delete_article', {'id':id}) }}">delete</a>
+                        <a class="btn btn-primary" href="{{  absolute_url('../..')~path('delete_article', {'id':id}) }}">delete</a>
 
                     </div>
                     <!-- event-details - end -->

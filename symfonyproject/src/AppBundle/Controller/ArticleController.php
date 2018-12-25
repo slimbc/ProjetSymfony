@@ -21,6 +21,24 @@ use Symfony\Component\Validator\Constraints\Date;
  */
 class ArticleController extends Controller
 {
+
+    /**
+     * @Route("/approv",name="app_article")
+     */
+    public function ApprovAction(LoggerInterface $logger)
+    {
+        $articls= array();
+        try{
+            $articls=$this->getDoctrine()->getRepository(Article::class)
+                ->findBy(array('approved'=>0));
+
+        }catch (ConnectionException $exception){
+            $logger->error($exception->getMessage());
+        }
+        return $this->render('@App/Article/Approve.html.twig', array(
+            "articls"=>$articls
+        ));
+    }
     /**
      * @Route("/add",name="add_article")
      */
@@ -39,6 +57,7 @@ class ArticleController extends Controller
             $article->setDateEcriture(new \DateTime('now'));
             $article->setCreater($user);
             $article->setState(true);
+            $article->setApproved(0);
             $em->persist($article);
             //redirect to all articls page
 
@@ -72,7 +91,7 @@ class ArticleController extends Controller
     { $articls= array();
         try{
             $articls=$this->getDoctrine()->getRepository(Article::class)
-                ->findBy(array('state'=>true));
+                ->findBy(array('approved'=>1));
 
         }catch (ConnectionException $exception){
             $logger->error($exception->getMessage());
@@ -81,6 +100,21 @@ class ArticleController extends Controller
             "articls"=>$articls
         ));
     }
+
+
+    /**
+     * @Route("/approv/{id}",name="approvarticle")
+     */
+    public function approvarticleAction($id,Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article=  $em->getRepository(article::class)->find($id);
+        $article->setApproved(1);
+        $em->persist($article);
+        $em->flush();
+        return $this->redirect($this->generateUrl('app_article'));
+    }
+
 
 
     /**

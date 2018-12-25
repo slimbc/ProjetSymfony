@@ -104,7 +104,38 @@ class Article
         $this->creater = $creater;
     }
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="approved", type="integer")
+     *
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+        private $approved;
+    /**
+     * Get approved
+     *
+     * @return int
+     */
+    public function getApproved()
+    {
+        return $this->approved;
+    }
 
+
+    /**
+     * Set approved
+     *
+     * @param integer $approved
+     *
+     * @return Article
+     */
+    public function setApproved($approved)
+    {
+        $this->approved = $approved;
+
+        return $this;
+    }
 
     /**
      * Get id

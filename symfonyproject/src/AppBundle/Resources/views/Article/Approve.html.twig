@@ -3,7 +3,7 @@
 {% block header %}
     {{ block('parent_header') }}
 {% endblock %}
-{% block title %}All articls{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
 
@@ -209,10 +209,9 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <a href="{{ path('show_article_details',{'id' : article.id}) }}" class="tickets-details-btn">
-                                                 Details
+                                            <a href="{{ path('approvarticle',{'id' : article.id}) }}" class="tickets-details-btn">
+                                                Approve
                                             </a>
-
                                         </div>
                                         <!-- event-content - end -->
                                     </div>

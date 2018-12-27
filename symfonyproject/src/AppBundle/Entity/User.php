@@ -60,6 +60,8 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+
+
     /**
      * @ORM\Column(type="array")
      */

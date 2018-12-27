@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% use "blocks.html.twig" with header as parent_header %}
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
+{% block title %}Send mail{% endblock %}
+
+{% block body %}
+    <section id="upcomming-event-section" class="event-section bg-white sec-ptb-200 clearfix">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-wrapper">
+                    {{ form_start(form) }}
+                    <div class="form-item mb-15">
+                        {{ form_row(form.object) }}
+                    </div>
+                    <div class="form-item mb-15">
+                        {{ form_row(form.content) }}
+                    </div>
+
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

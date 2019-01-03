@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+{% use "blocks.html.twig" with header as parent_header %}
+{% block header %}
+    {{ block('parent_header') }}
+{% endblock %}
+{% block title %}All mails{% endblock %}
+
+{% block body %}
+
+    <!-- event-search-section - start
+            ================================================== -->
+    <section id="event-search-section" class="event-search-section clearfix" style="background-image: url({{ asset('images/special-offer-bg.png') }});">
+        <div class="container">
+            <div class="row">
+
+                <!-- section-title - start -->
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <small class="sub-title">Find best article on NATEG</small>
+                        <h2 class="big-title">article <strong>Search</strong></h2>
+                    </div>
+                </div>
+                <!-- section-title - end -->
+
+                <!-- search-form - start -->
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <div class="search-form form-wrapper">
+                        <form action="#!">
+
+                            <ul>
+                                <li>
+                                    <span class="title">article keyword</span>
+                                    <div class="form-item">
+                                        <input type="search" placeholder="Event name,location,etc">
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="title">article category</span>
+                                    <select id="event-category-select">
+                                        <option selected="">Conference</option>
+                                        <option value="1">Challenges</option>
+                                        <option value="2">Training</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <button type="submit" class="submit-btn">search article now</button>
+                                </li>
+                            </ul>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- search-form - end -->
+
+            </div>
+        </div>
+    </section>
+    <!-- event-search-section - end
+    ================================================== -->
+
+
+    <!-- event-section - start
+        ================================================== -->
+    <section id="event-section" class="event-section bg-gray-light sec-ptb-100 clearfix">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <!-- - start -->
+                <table border="1px">
+                    <tr>
+                        <th>Object</th>
+                        <th>Content</th>
+                        <th>Date</th>
+                    </tr>
+
+                    {% for mail in mails %}
+                    <tr>
+                        <td>{{ mail.object }}</td>
+                        <td>{{ mail.content }}</td>
+                        <td>{{ mail.date|date("d F Y")  }}</td>
+                    </tr>
+
+                {% endfor %}
+                </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- - end -->
+
+        </div>
+        </div>
+    </section>
+    <!-- event-section - end -->
+
+{% endblock %}
